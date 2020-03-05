@@ -4,35 +4,24 @@ This guide will explain how to install everything in the project in a few easy c
 
 ## The gitlab instance
 
-## The gitlab runner
+Install the gitlab instance following the guide on the gitlab documentation page. This will guide you during the installation process and help with configuring the gitlab instance. During my installation I had the issue that the https certificate could not be validated. Changing the url to http solved this. As this is for a demo project, the reduced security matters less. So instead of the https version of the command. use the http version.
 
-## Prerequisites minishift
+``` BASH
+sudo EXTERNAL_URL="https://gitlab.example.com" apt-get install gitlab-ee
+```
 
-### Installing KVM
+I did the following:
 
-### Setup virtual environment
+``` BASH
+sudo EXTERNAL_URL="http://gitlab.example.com" apt-get install gitlab-ee
+```
 
-### Install&Start minishift
+After the install, you can start the gitlab instance with the following command.
 
-### Install the container registry
+``` BASH
+sudo gitlab-ctl reconfigure
+```
 
-### Install&Configure cluster-up
+### The gitlab instance runner
 
-## Configure the cluster
-
-## Install docker
-
-### Set docker Configuration
-
-## Cloning the git repositories
-
-### Credentials Configuration
-
-### Migrate the code to the local instance
-
-#### Update the gitlab Configuration
-
-## The gitlab CI/CD
-
-### Set the cluster to pickup the images
-
+[gitlab documentation](https://docs.gitlab.com/)
