@@ -69,7 +69,7 @@ Unzip the file into a directory and preform the needed git commands. These comma
 
 ## Changes to the pipeline
 
-Next step might involve some changes in the .gitlab-ci.yml file, depending on the installation. Changing this file shows again that the current installation and infrastructure isn't a good representation of the reality we're building. For myself, I had to change the docker push command to the following:
+Next step might involve some changes in the .gitlab-ci.yml file, depending on the installation. Changing this file shows again that the current installation and infrastructure isn't a good representation of the reality we're building. For myself, I had to change the `docker push` command to the following:
 
 ``` BASH
 docker build -t localhost:5000/sign-validation
