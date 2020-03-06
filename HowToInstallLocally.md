@@ -55,32 +55,32 @@ sudo usermod -aG docker gitlab-runner
 sudo service docker restart
 ```
 
-Next step would be to have access to the docker registry on the local machine. Using the command to install the registry from docker itself is just the first part of the installation. When running the command now, the response would be access denied. The runner needs to be able to log onto the docker registry in order to be able to push anything.
-This can be done by changing the configuration in the gitlab.yml file.
+The next step will start the docker registry to be able to accept the docker image pushing.
 
 ``` BASH
 docker run -d -p 5000:5000 --restart=always --name registry registry:2
 ```
 
-The nano command enables opens a linux based writting program, much like vim. Here you'd be able to add the correct configuration for your machine.
-
-``` BASH
-sudo nano /etc/gitlab/gitlab.rb
-```
-
-``` BASH
-registry:
-  enabled: true
-  host: registry.192.168.1.247
-  port: 5005
-  api_url: http://192.168.1.247:5000/
-  key: config/registry.key
-  path: shared/registry
-  issuer: gitlab-issuer
-```
+In order to use the maven commands, you must install java and maven on the system.
 
 ## Moving the git repository
 
 Unzip the file into a directory and preform the needed git commands. These commands will be provided by gitlab itself. After making a project use the instructions giving under the push an existing Git repository. The pipeline is already configured in the file .gitlab-ci.yml.
+
+## Changes to the pipeline
+
+Next step might involve some changes in the .gitlab-ci.yml file, depending on the installation. Changing this file shows again that the current installation and infrastructure isn't a good representation of the reality we're building. For myself, I had to change the docker push command to the following:
+
+``` BASH
+docker build -t localhost:5000/sign-validation
+```
+
+``` BASH
+docker run localhost:5000/sign-validation
+```
+
+The last command will start up the application. Now Postman can be used in other to test the sign&validation.
+
+## Documentation
 
 [gitlab documentation](https://docs.gitlab.com/)
