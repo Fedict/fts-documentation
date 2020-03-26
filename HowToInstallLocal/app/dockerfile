@@ -1,0 +1,7 @@
+FROM tomcat:9.0
+
+RUN echo "JAVA_OPTS=\"$JAVA_OPTS -Dresourcelocator.datasource.url=jdbc:postgresql://postgresdb:5432/resources -Dresourcelocator.datasource.username=postgres -Dresourcelocator.datasource.password=postgres -Dsigningconfigurator.datasource.url=jdbc:postgresql://postgresdb:5432/signing -Dsigningconfigurator.datasource.username=postgres -Dsigningconfigurator.datasource.password=postgres\"" > /usr/local/tomcat/bin/setenv.sh
+
+COPY ./signandvalidation-ws/target/*.war /usr/local/tomcat/webapps/signandvalidation.war
+
+CMD ["catalina.sh", "run"]  

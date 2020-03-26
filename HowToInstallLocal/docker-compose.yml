@@ -1,0 +1,18 @@
+tomcat:  
+  build: ./app
+  ports:
+    - "8080:8080"
+  links:
+    - postgresdb
+
+postgresdb:  
+  build: ./db
+  ports:
+    - "5432:5432"
+
+adminer:
+  image: adminer
+  ports:
+    - "3000:8080"
+  links:
+    - postgresdb
