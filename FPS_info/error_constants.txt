@@ -1,0 +1,25 @@
+
+Error constant               Explanation
+==============               ===========
+BEID_CONNECT_ERROR           Couldn't connect to the eID card
+NO_READER                    No reader found on the user's PC
+UNSUPPORTED_READER           unsupported smart card reader
+SIGNATURE_FAILED             eID card returned an invalid signature
+CARD_BLOCKED                 eID card blocked
+CARD_ERROR                   eID card error
+USER_CANCELLED               User cancelled the signing operation
+SIGN_CERT_EXPIRED            Signing certificate expired
+CERT_CHAIN_INCOMPLETE        No or incomplete certificate chain
+NO_SIGN_CERT                 No signing certificate provided
+INVALID_SIG_DATE             Signing date out of bounds
+INVALID_S3_LOGIN             Invalid user name or password
+NO_CERT_TO_VALIDATE          The certificate is missing
+NO_DOC_TO_VALIDATE           DSSDocument is null
+NO_TOKEN                     Required parameter token not provided
+CERT_REVOKED                 Certificate (probably the signing cert) revoked
+INTERNAL_ERR                 Unexpected error occured
+INVALID_DOC                  Document validation (after signing) failed
+UNKNOWN_PROFILE              Unknown signature profile
+EMPTY_PARAM                  Empty (null) parameter in request
+INVALID_TOKEN                Invalid token in request
+PARSE_ERROR                  Couldn't parse request
