@@ -4,7 +4,7 @@ This information is for an FPS that wants to use the BOSA FTS as a signing solut
 
 ## Documentation
 
-[BOSA signature solution.docx](BOSA signature solution.docx)
+[BOSA signature solution.docx](BOSA%20signature%20solution.docx)
 
 ## Error strings
 
